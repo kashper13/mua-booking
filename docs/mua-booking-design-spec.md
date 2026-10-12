@@ -18,7 +18,7 @@
 | B3 | Does a **Pending** request hold the slot? | Customer date/time availability, Admin calendar | Pending shown separately; conflict notice is informational only |
 | B4 | Group / entourage bookings (headcount) | Booking step 1/4 | Not asked; customer can mention in Notes |
 | B5 | Travel area & fees | Step 4 location, Services | Free-text location only |
-| B6 | Deposits / reservation fee | Review, Confirmation, Admin approve | Not shown anywhere |
+| B6 | Payments and deposits | Review, Confirmation, Admin approve | **OUT OF SCOPE — MVP.** Not shown. Approval does not depend on payment. See `docs/product-requirements.md`. |
 | B7 | Cancellation / reschedule policy | Review, Status page | Not shown; "Message on Messenger" to change |
 | B8 | How customers are notified of approve/decline | Confirmation, Admin approve sheet | Status lookup page + optional "open Messenger with prepared message" |
 | B9 | Business name, logo, real photos, testimonials | Everywhere | `[Artist Name]`, `[Name]`, photo placeholders |
@@ -273,7 +273,7 @@ Navigation: bottom tabs **Home · Requests (badge) · Calendar · Manage**. Mana
 - Sticky footer: Decline (outline red) | Approve (green).
 
 ### 4.4 Approve / Decline sheets
-- **Approve:** summary, editable confirmed start time (pre-filled from request), optional note to customer, checkbox "Open Messenger afterwards with a ready-to-send confirmation message", buttons Not now | Approve. ⚠ B6 may add deposit fields later.
+- **Approve:** summary, editable confirmed start time (pre-filled from request), optional note to customer, checkbox "Open Messenger afterwards with a ready-to-send confirmation message", buttons Not now | Approve. No deposit or payment fields (B6: **OUT OF SCOPE — MVP**).
 - **Decline:** reason radios (Fully booked that day / Not available at that time / Other), optional message, irreversible warning, Keep pending | Decline.
 - Both: focus trap, Esc/scrim closes (except while saving), success toast + status updates in place.
 
@@ -362,6 +362,7 @@ Rules: hero display type scales 38 → 48 → 64px; never hide the booking CTA a
 | 0.2 | 12 Oct 2026 | Phase 2 Step 1 approved — Services & Portfolio pages (§10) |
 | 0.3 | 12 Oct 2026 | Step 1 refinements R1–R3 (§11); Step 2 Admin Portfolio & Settings (§12–13) |
 | 0.4 | 12 Oct 2026 | Step 2 approved; refinements S2-R1–R3 applied to §12.2, §12.1, §13.4 and summarised in §14; Step 3 Week & Day calendar (§15) — **in review** |
+| 0.4 | 12 Oct 2026 | Product decision, no screen change: payments and deposits are **OUT OF SCOPE — MVP** (B6). Displaying a configured price is unchanged. |
 
 ---
 
@@ -419,7 +420,7 @@ Canvas: *Admin · Portfolio & Settings* → artboard **R · Step 1 refinements**
 - Customer flow never renders "₱", "from" or a number for a quote service: step 1 card shows **"Price on request"**; sticky summary shows service name only.
 - **Review step** service row adds an amber info line: **"Price to be confirmed by the makeup artist."**
 - **Submitted page & status lookup:** detail row "Price — To be confirmed by the makeup artist".
-- **Admin:** request card/detail shows a **"Quote needed"** chip; approve sheet adds reminder text "This customer hasn't been given a price yet…". No price-capture field is added (pricing/deposit capture unconfirmed).
+- **Admin:** request card/detail shows a **"Quote needed"** chip; approve sheet adds reminder text "This customer hasn't been given a price yet…". No price-capture field is added. Deposits and payment capture are **OUT OF SCOPE — MVP** (B6). A displayed price is not a collected payment.
 
 ### R3 — Service preselection
 | Entry point | Result in booking step 1 |

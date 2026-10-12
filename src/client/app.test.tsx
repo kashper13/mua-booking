@@ -16,7 +16,7 @@ describe("application shell routing", () => {
   it("renders the public home stub", () => {
     renderAt("/");
 
-    expect(screen.getByRole("heading", { name: "MUA Booking" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Professional makeup" })).toBeInTheDocument();
   });
 
   it("renders the admin placeholder", () => {
