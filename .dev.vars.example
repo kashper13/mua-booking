@@ -1,0 +1,7 @@
+# Worker secrets for local development (`wrangler` / Vite Cloudflare plugin).
+# None are required in Phase 0.
+#
+# Do not put production credentials in this file.
+# Copy to `.dev.vars` for local-only values. `.dev.vars` is gitignored.
+#
+# TURNSTILE_SECRET_KEY=
