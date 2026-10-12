@@ -11,7 +11,7 @@ Phase 0 establishes a single-repository, single-Worker application. Later phases
 | Frontend     | One React SPA                                  | Public and admin share the design system and origin         |
 | Routing      | React Router as a client library               | Cloudflare's recommended SPA approach on Workers            |
 | API          | Hono under `/api/*`                            | Worker-first routing without a second service               |
-| Styling      | Tailwind CSS                                   | Required stack; branded tokens wait on the design spec      |
+| Styling      | Tailwind CSS                                   | Rosé Arch tokens live in the Tailwind v4 theme              |
 | Data         | None in Phase 0                                | D1, R2, and Drizzle are deferred until schemas are approved |
 | Compat flags | No `nodejs_compat`                             | No installed dependency requires it                         |
 
@@ -82,10 +82,23 @@ Phase 0 therefore ships no login, no session cookies, no mock admin datasets, an
 ## Known limitations
 
 - UI/UX follows `docs/mua-booking-design-spec.md` (DRAFT v0.4). Unconfirmed business rules marked in that document must not be implemented.
-- Do not invent policies, services, payment rules, or calendar behavior beyond the approved specification.
+- The public homepage is presentational. The business name, photos, prices, reviews, and contact links stay placeholders until the owner supplies them. Online booking is not available.
+- Do not invent policies, services, or calendar behavior beyond the approved specification.
 - There is no persistence layer.
 - Preview and production behavior depend on Cloudflare Workers Static Assets; local `vite` uses the Cloudflare Vite plugin so `/api/*` routing matches that model.
 
+## Payments
+
+**OUT OF SCOPE — MVP.** Recorded in [`docs/product-requirements.md`](product-requirements.md).
+
+The owner has not confirmed reservation deposits or online payments. Customers will submit booking requests that stay pending until the owner approves or declines them. Approval must not depend on payment. A configured service price may be displayed; displaying a price is not collecting a payment.
+
+The MVP must not include payment gateways, GCash or Maya, online deposits, payment collection forms, payment screenshot uploads, payment verification, refunds, payment transaction records, or payment-related booking statuses.
+
+Do not add payment dependencies, schemas, or APIs. Future payment functionality requires explicit business owner approval and a separate design review.
+
 ## Out of scope until later phases
 
-Booking workflows, customer management, calendar logic, admin authentication, database schemas, D1/R2 bindings, Turnstile, payments, and production APIs.
+Booking workflows, customer management, calendar logic, admin authentication, database schemas, D1/R2 bindings, Turnstile, and production APIs.
+
+Payment functionality is not in that later-phase list. It stays **OUT OF SCOPE — MVP** until the owner approves it and a separate design review is complete.
