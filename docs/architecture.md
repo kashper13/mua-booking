@@ -81,8 +81,8 @@ Phase 0 therefore ships no login, no session cookies, no mock admin datasets, an
 
 ## Known limitations
 
-- `docs/mua-booking-design-spec.md` is missing from the workspace. UI/UX cannot follow Rosé Arch until that file is present.
-- Unconfirmed business requirements are not listed here because the specification is not in the repository. Do not invent policies, services, payment rules, or calendar behavior.
+- UI/UX follows `docs/mua-booking-design-spec.md` (DRAFT v0.4). Unconfirmed business rules marked in that document must not be implemented.
+- Do not invent policies, services, payment rules, or calendar behavior beyond the approved specification.
 - There is no persistence layer.
 - Preview and production behavior depend on Cloudflare Workers Static Assets; local `vite` uses the Cloudflare Vite plugin so `/api/*` routing matches that model.
 

@@ -1,5 +1,217 @@
 @import "tailwindcss";
 
+/* Rosé Arch tokens — docs/mua-booking-design-spec.md DRAFT v0.4 */
+@theme {
+  --color-petal: #fff7f4;
+  --color-blush: #f4dcd6;
+  --color-blush-tint: #fbeae5;
+  --color-blush-hover: #ebcfc8;
+  --color-rosewood: #8c4a55;
+  --color-rosewood-dark: #6e3540;
+  --color-plum-ink: #3b2a30;
+  --color-mauve: #7a666c;
+  --color-mauve-dark: #6b5157;
+  --color-sage: #7e8c76;
+  --color-sage-text: #5f6b58;
+  --color-surface: #ffffff;
+  --color-border: #ebd3cc;
+  --color-border-hover: #d9b9b1;
+  --color-divider-soft: #f4dcd6;
+  --color-input-border: #9e8890;
+  --color-photo-1: #e9c9c1;
+  --color-photo-2: #dfd9cf;
+  --color-photo-3: #fbeae5;
+  --color-skeleton: #f1e2de;
+
+  --color-status-requested: #f4dcd6;
+  --color-status-requested-fg: #6e3540;
+  --color-status-pending: #fcefd9;
+  --color-status-pending-fg: #7a4b0e;
+  --color-status-confirmed: #e3ebdf;
+  --color-status-confirmed-fg: #3d5536;
+  --color-status-declined: #fbe4e1;
+  --color-status-declined-fg: #8a1f17;
+  --color-status-cancelled: #ece7e8;
+  --color-status-cancelled-fg: #4f464a;
+  --color-status-blocked: #ece7e8;
+  --color-status-blocked-alt: #f7f3f4;
+  --color-status-blocked-fg: #5a5054;
+
+  --color-feedback-error: #b42318;
+  --color-feedback-error-text: #a61b1b;
+  --color-feedback-error-bg: #fbe4e1;
+  --color-feedback-error-border: #e8b4ae;
+  --color-feedback-warn-bg: #f6efe2;
+  --color-feedback-warn-text: #6a420c;
+  --color-feedback-info-bg: #eef1eb;
+  --color-feedback-info-text: #3d4a37;
+  --color-action-approve: #3d5536;
+  --color-scrim: #8e8085;
+
+  --font-display: "DM Serif Display", ui-serif, Georgia, serif;
+  --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-sheet: 24px;
+  --radius-pill: 999px;
+  --radius-arch-bottom: 10px;
+
+  --shadow-sticky: 0 -6px 20px rgb(59 42 48 / 0.08);
+  --shadow-fab: 0 6px 18px rgb(59 42 48 / 0.25);
+
+  --spacing-touch: 44px;
+  --spacing-control: 52px;
+  --spacing-control-dense: 48px;
+  --spacing-nav-admin: 72px;
+  --spacing-gutter: 16px;
+  --spacing-gutter-text: 20px;
+  --spacing-field: 18px;
+
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+}
+
+@utility rounded-arch {
+  border-radius: 50% 50% var(--radius-arch-bottom) var(--radius-arch-bottom);
+}
+
+@utility type-display {
+  font-family: var(--font-display);
+  font-size: 38px;
+  line-height: 1.12;
+  font-weight: 400;
+}
+
+@utility type-h1 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 400;
+}
+
+@utility type-h1-admin {
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+@utility type-h2 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+@utility type-h2-admin {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+@utility type-card-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+@utility type-body-lg {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+@utility type-body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+@utility type-label {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+@utility type-small {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 400;
+}
+
+@utility type-micro {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+@utility type-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@utility ds-focus {
+  outline: 2px solid var(--color-plum-ink);
+  outline-offset: 2px;
+}
+
+@keyframes ds-pulse {
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@utility ds-skeleton {
+  background-color: var(--color-skeleton);
+  animation: ds-pulse 1.2s ease-in-out infinite;
+}
+
+@media (width >= 768px) {
+  .type-display {
+    font-size: 48px;
+  }
+
+  .type-h1 {
+    font-size: 32px;
+  }
+
+  .type-card-title {
+    font-size: 19px;
+  }
+
+  .type-h2-admin {
+    font-size: 18px;
+  }
+
+  .type-small {
+    font-size: 14px;
+  }
+
+  .type-eyebrow {
+    font-size: 13px;
+  }
+}
+
+@media (width >= 1024px) {
+  .type-display {
+    font-size: 64px;
+  }
+}
+
 html,
 body,
 #root {
@@ -8,12 +220,45 @@ body,
 
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.5;
-  color: #171717;
-  background: #fafafa;
+  color: var(--color-plum-ink);
+  background: var(--color-petal);
 }
 
 a {
   color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-plum-ink);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  .ds-skeleton {
+    animation: none;
+  }
+
+  .ds-pressable:active:not(:disabled) {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ds-pressable {
+    transition:
+      background-color 160ms ease-out,
+      border-color 160ms ease-out,
+      color 160ms ease-out,
+      transform 100ms ease-out;
+  }
+
+  .ds-pressable:active:not(:disabled) {
+    transform: scale(0.98);
+  }
 }

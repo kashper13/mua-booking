@@ -2,7 +2,7 @@
 
 Booking management application for a professional makeup artist in Basilan, Philippines.
 
-This repository is in **Phase 0**: a maintainable Cloudflare Workers foundation with a minimal application shell. Booking workflows, authentication, payments, and branded UI are intentionally absent.
+This repository is in **Phase 1A**: Cloudflare Workers foundation plus the Rosé Arch design-token and component layer. Booking workflows, authentication, and payments are intentionally absent.
 
 ## Stack
 
@@ -23,11 +23,12 @@ npm run dev
 
 Then open the Vite URL printed in the terminal (typically `http://localhost:5173`).
 
-| Path          | What you should see               |
-| ------------- | --------------------------------- |
-| `/`           | Public shell stub                 |
-| `/admin`      | Unauthenticated admin placeholder |
-| `/api/health` | `{ "ok": true }`                  |
+| Path                 | What you should see                           |
+| -------------------- | --------------------------------------------- |
+| `/`                  | Public shell stub                             |
+| `/admin`             | Unauthenticated admin placeholder             |
+| `/dev/design-system` | Component showcase (local `npm run dev` only) |
+| `/api/health`        | `{ "ok": true }`                              |
 
 Additional commands:
 
@@ -43,6 +44,6 @@ See [docs/development.md](docs/development.md) for environment files, tooling, a
 
 ## Status
 
-- Design specification (`docs/mua-booking-design-spec.md`) is **not in this repository**. Rosé Arch UI work is blocked until that file is added.
+- Design specification: [`docs/mua-booking-design-spec.md`](docs/mua-booking-design-spec.md) (**DRAFT v0.4**).
 - No Cloudflare resources have been created.
 - Do not deploy this Phase 0 shell to production.
