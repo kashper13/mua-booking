@@ -31,4 +31,12 @@ describe("application shell routing", () => {
 
     expect(screen.getByRole("heading", { name: "Not found" })).toBeInTheDocument();
   });
+
+  it("renders the design system showcase in development", async () => {
+    renderAt("/dev/design-system");
+
+    expect(
+      await screen.findByRole("heading", { name: "Rosé Arch design system" }),
+    ).toBeInTheDocument();
+  });
 });
